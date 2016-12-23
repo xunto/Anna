@@ -1,4 +1,4 @@
-from core import Tokens
+from . import Tokens
 
 
 def validate_tokens(tokens):

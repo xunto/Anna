@@ -1,5 +1,5 @@
-from core.Tree import Tree
-from core import Tokens, SyntaxTree
+from .Tree import Tree
+from . import Tokens, SyntaxTree
 
 
 class Table(Tree):

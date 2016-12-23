@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 
 import argparse
-import core
 
+import core
 from core.output import HTML
 
 

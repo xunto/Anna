@@ -1,4 +1,4 @@
-from core.AnalyticalTable import Table
+from ..AnalyticalTable import Table
 
 default_style_template = '''
     .scope {

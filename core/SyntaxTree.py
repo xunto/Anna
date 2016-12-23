@@ -1,5 +1,5 @@
-from core.Tree import Tree
-from core import Tokens
+from .Tree import Tree
+from . import Tokens
 
 
 def to_string(tree: Tree):
