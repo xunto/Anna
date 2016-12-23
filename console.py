@@ -1,5 +1,31 @@
 #! /usr/bin/env python
 
-from analyzer import main
+import argparse
+import analyzer
+
+from analyzer.output import HTML
+
+
+output_types = {
+    "html": lambda table:
+        HTML.default_html_template.format(data=HTML.convert(table), style=HTML.default_style_template)
+}
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Builds analytical table for logical expression.')
+
+    parser.add_argument("expression", metavar="expression",
+                        help="logical expression")
+
+    parser.add_argument("-t", "--type", dest="output_type", metavar="output_type",
+                        choices=output_types.keys(), default="html",
+                        help="output type, can be: " + (', '.join(output_types.keys())))
+
+    args = parser.parse_args()
+    table = analyzer.build(args.expression)
+    output_string = output_types[args.output_type](table)
+
+    print(output_string)
 
 main()

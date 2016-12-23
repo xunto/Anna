@@ -1,10 +1,6 @@
 from analyzer.AnalyticalTable import Table
 
-defautl_html_template = '''
-<!DOCTYPE html>
-<html>
-<head>
-<style>
+default_style_template = '''
     .scope {
         display: table-cell;
 
@@ -18,11 +14,19 @@ defautl_html_template = '''
         border-left: solid 1px black;
         padding-left: 5px;
     }
+'''
+
+default_html_template = '''
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+{style}
 </style>
 </head>
 <body>
 <code>
-%s
+{data}
 </code>
 </body>
 </html>
