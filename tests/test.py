@@ -1,7 +1,7 @@
 import argparse
 
-from analyzer import Lexer, SyntaxTree, AnalyticalTable
-from analyzer.output import HTML
+from core import Lexer, SyntaxTree, AnalyticalTable
+from core.output import HTML
 
 
 # tokens = Lexer.lex("(A->(B->A))")

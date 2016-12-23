@@ -1,5 +1,5 @@
-from analyzer.Tree import Tree
-from analyzer import Tokens, SyntaxTree
+from core.Tree import Tree
+from core import Tokens, SyntaxTree
 
 
 class Table(Tree):

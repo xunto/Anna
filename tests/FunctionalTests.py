@@ -1,4 +1,4 @@
-from analyzer import build
+from core import build
 import unittest
 
 

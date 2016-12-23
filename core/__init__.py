@@ -1,4 +1,4 @@
-from analyzer import Lexer, SyntaxTree, AnalyticalTable, Validation
+from core import Lexer, SyntaxTree, AnalyticalTable, Validation
 
 
 def build(expression):

@@ -1,7 +1,7 @@
 import re
 import sys
 
-from analyzer import Tokens
+from core import Tokens
 
 token_definitions = [
     {

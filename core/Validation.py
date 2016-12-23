@@ -1,4 +1,4 @@
-from analyzer import Tokens
+from core import Tokens
 
 
 def validate_tokens(tokens):

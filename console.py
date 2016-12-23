@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 
 import argparse
-import analyzer
+import core
 
-from analyzer.output import HTML
+from core.output import HTML
 
 
 output_types = {
@@ -23,7 +23,7 @@ def main():
                         help="output type, can be: " + (', '.join(output_types.keys())))
 
     args = parser.parse_args()
-    table = analyzer.build(args.expression)
+    table = core.build(args.expression)
     output_string = output_types[args.output_type](table)
 
     print(output_string)
