@@ -14,7 +14,7 @@ def to_string(tree: Tree):
 def create(tokens: dict):
     tree = Tree()
 
-    stack = [tree]
+    stack = []
     for token in tokens:
         if isinstance(token, Tokens.OpenGroupToken) or isinstance(token, Tokens.OperationToken):
             stack.append(tree)
@@ -26,18 +26,23 @@ def create(tokens: dict):
             tree.children.append(branch)
             tree = branch
         elif isinstance(token, Tokens.CloseGroupToken) or isinstance(token, Tokens.VariableToken):
-            parent = stack.pop()
-
             if isinstance(token, Tokens.VariableToken):
                 tree.data = token
-            else:
+
+            if len(stack) > 0:
+                parent = stack.pop()
+
                 # Fix extra parenthesis
                 if tree.data is None:
                     child = tree.children.pop()
                     parent.children.pop()
                     parent.children.append(child)
 
-            tree = parent
+                tree = parent
         else:
             raise ValueError()
+
+    if tree.data is None:
+        tree = tree.children.pop()
+
     return tree

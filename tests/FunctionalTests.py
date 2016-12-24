@@ -16,5 +16,6 @@ class FunctionalTests(unittest.TestCase):
 
         table1 = build(cases.pop())
         for case in cases:
+            print(case)
             table2 = build(case)
             self.assertEquals(table1.to_json(), table2.to_json())
