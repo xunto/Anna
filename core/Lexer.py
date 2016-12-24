@@ -4,10 +4,10 @@ import sys
 from . import Tokens
 
 token_definitions = [
-    {
-        'regex': re.compile(r'!'),
-        'class': Tokens.InversionToken
-    },
+    # {
+    #     'regex': re.compile(r'!'),
+    #     'class': Tokens.InversionToken
+    # },
     {
         'regex': re.compile(r'&'),
         'class': Tokens.ConjunctionToken
