@@ -11,6 +11,20 @@ def to_string(tree: Tree):
         return str(tree.data)
 
 
+def fix_tree(tree: Tree):
+    if tree.data is None:
+        tree = tree.children.pop()
+        tree = fix_tree(tree)
+
+    children = []
+    for child in tree.children:
+        children.append(fix_tree(child))
+
+    tree.children = children
+
+    return tree
+
+
 def create(tokens: dict):
     tree = Tree()
 
@@ -31,18 +45,8 @@ def create(tokens: dict):
 
             if len(stack) > 0:
                 parent = stack.pop()
-
-                # Fix extra parenthesis
-                if tree.data is None:
-                    child = tree.children.pop()
-                    parent.children.pop()
-                    parent.children.append(child)
-
                 tree = parent
         else:
             raise ValueError()
 
-    if tree.data is None:
-        tree = tree.children.pop()
-
-    return tree
+    return fix_tree(tree)
