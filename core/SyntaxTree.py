@@ -31,6 +31,9 @@ def create(tokens: dict):
     stack = []
     for token in tokens:
         if isinstance(token, Tokens.OpenGroupToken) or isinstance(token, Tokens.OperationToken):
+            if isinstance(token, Tokens.InversionToken):
+                tree = stack.pop()
+                tree.children.pop()
             stack.append(tree)
 
             if isinstance(token, Tokens.OperationToken):
