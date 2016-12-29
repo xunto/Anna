@@ -16,10 +16,10 @@ output_types = {
 def main():
     parser = argparse.ArgumentParser(description='Builds analytical table for logical expression.')
 
-    parser.add_argument("expression", metavar="expression",
-                        help="logical expression")
+    parser.add_argument("expression", metavar="expression", type=str,
+                        help="logical expression, without spaces, actions: \"!, |, &, ->, <->\"")
 
-    parser.add_argument("-t", "--type", dest="output_type", metavar="output_type",
+    parser.add_argument("-t", "--type", dest="output_type", metavar="output_type", type=str,
                         choices=output_types.keys(), default="html",
                         help="output type, can be: " + (', '.join(output_types.keys())))
 
