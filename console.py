@@ -21,7 +21,6 @@ description = '''Description:
   (c) 2017 Orlov Valentin S.'''
 
 
-
 def main():
     parser = argparse.ArgumentParser(description=description, formatter_class=argparse.RawDescriptionHelpFormatter)
 
