@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from ..AnalyticalTable import Table
 
 default_style_template = '''
@@ -33,7 +35,7 @@ default_html_template = '''
 '''
 
 
-def convert(table: Table):
+def convert(table):
     return '<div class=\"scope\">' \
            + ('<br/>'.join(str(data) for data in table.data)) \
            + '<br/>' \

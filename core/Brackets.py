@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .Tokens import ConjunctionToken, DisjunctionToken, EquivalenceToken, ImplicationToken,\
     InversionToken, OpenGroupToken, CloseGroupToken, GroupToken, OperationToken, Token
 
@@ -6,7 +8,7 @@ priority = [
 ]
 
 
-def is_reserved(token: Token):
+def is_reserved(token):
     return isinstance(token, OperationToken) or isinstance(token, GroupToken)
 
 
@@ -34,7 +36,7 @@ def find_group_end(tokens, start, reverse=False):
     return end
 
 
-def reverse_tokens(tokens: list):
+def reverse_tokens(tokens):
     tokens.reverse()
 
     for i in range(0, len(tokens)):
@@ -47,7 +49,7 @@ def reverse_tokens(tokens: list):
     return tokens
 
 
-def rule_wrap_arguments(tokens: list):  # Добавляет скобки к аргументам
+def rule_wrap_arguments(tokens):  # Добавляет скобки к аргументам
     i = 0
     while i < len(tokens) - 1:
         if not is_reserved(tokens[i]):
@@ -66,7 +68,7 @@ def rule_wrap_arguments(tokens: list):  # Добавляет скобки к а�
     return tokens
 
 
-def restore_operation_bracket(tokens: list, operation: OperationToken):
+def restore_operation_bracket(tokens, operation):
     if operation.get_reverse():
         tokens = reverse_tokens(tokens)
 
@@ -90,7 +92,9 @@ def restore_operation_bracket(tokens: list, operation: OperationToken):
     return tokens
 
 
-def restore(tokens: list):
+# arguments: list of Token instances
+# returns: list of Token instances
+def restore(tokens):
     tokens = rule_wrap_arguments(tokens)
     for operation in priority:
         tokens = restore_operation_bracket(tokens, operation)

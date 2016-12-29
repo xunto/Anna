@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from .Tree import Tree
 from . import Tokens
 
 
-def to_string(tree: Tree):
+def to_string(tree):
     if len(tree.children) == 2:
         return '(' + to_string(tree.children[0]) + str(tree.data) + to_string(tree.children[1]) + ')'
     elif len(tree.children) == 1:
@@ -11,7 +13,7 @@ def to_string(tree: Tree):
         return str(tree.data)
 
 
-def fix_tree(tree: Tree):
+def fix_tree(tree):
     if tree.data is None:
         tree = tree.children.pop()
         tree = fix_tree(tree)
@@ -25,7 +27,9 @@ def fix_tree(tree: Tree):
     return tree
 
 
-def create(tokens: dict):
+# arguments: list of Token instances
+# returns: Tree
+def create(tokens):
     tree = Tree()
 
     stack = []

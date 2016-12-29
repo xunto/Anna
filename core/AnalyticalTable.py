@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .Tree import Tree
 from . import Tokens, SyntaxTree
 
@@ -6,7 +8,7 @@ class Table(Tree):
     def __init__(self, data=None, children=None):
         if data is None:
             data = []
-        super().__init__(data, children)
+        Tree.__init__(self, data, children)
 
     def find_roots(self):
         stack = [self]
@@ -24,7 +26,7 @@ class Table(Tree):
 
 
 class Presumed:
-    def __init__(self, tree: Tree):
+    def __init__(self, tree):
         self.tree = tree
 
 
@@ -43,7 +45,9 @@ SPLIT_ACTION = 'split_action'
 IGNORE_ACTION = 'ignore_action'
 
 
-def build(syntax_tree: Tree):
+# arguments: instance of SyntaxTree
+# returns: instance of Table
+def build(syntax_tree):
     table = Table()
 
     result_table = table

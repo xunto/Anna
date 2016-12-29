@@ -1,6 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from . import Tokens
 
 
+# arguments: list of Token instances
+# returns: list of Token instances
 def validate_tokens(tokens):
     result = True
 

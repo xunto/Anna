@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 import sys
 
@@ -39,6 +41,8 @@ token_definitions = [
 ]
 
 
+# arguments: string
+# returns: list of Token instances
 def lex(expression):
     pos = 0
     tokens = []
