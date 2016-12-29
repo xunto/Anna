@@ -12,9 +12,18 @@ output_types = {
         HTML.default_html_template.format(data=HTML.convert(table), style=HTML.default_style_template)
 }
 
+description = '''Description:
+  Anna program builds analytical table for logical expression.
+  Dedication: This is for my caring girlfriend Anna who programmed a brackets restoration part.
+
+  site:  https://github.com/xunto/anna
+  email: hunterdelyx1@gmail.com
+  (c) 2017 Orlov Valentin S.'''
+
+
 
 def main():
-    parser = argparse.ArgumentParser(description='Builds analytical table for logical expression.')
+    parser = argparse.ArgumentParser(description=description, formatter_class=argparse.RawDescriptionHelpFormatter)
 
     parser.add_argument("expression", metavar="expression", type=str,
                         help="logical expression, without spaces, actions: \"!, |, &, ->, <->\"")
