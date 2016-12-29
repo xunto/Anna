@@ -3,19 +3,30 @@
 from ..AnalyticalTable import Table
 
 default_style_template = '''
-    .scope {
-        display: table-cell;
+        .table .scope {
+            display: table-cell;
+            white-space: nowrap;
+            border-top: solid 1px black;
+            padding-right: 5px;
+        }
 
-        white-space: nowrap;
+        .table .scope + .scope {
+            padding-left: 5px;
+            border-left: solid 1px black;
+        }
 
-        padding-right: 5px;
-        border-top: solid 1px black;
-    }
+        .table>.scope {
+            border: none;
+        }
 
-    .scope + .scope {
-        border-left: solid 1px black;
-        padding-left: 5px;
-    }
+        .table {
+            font-family: monospace;
+            background: #e0e0e0;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            overflow-x: scroll;
+        }
 '''
 
 default_html_template = '''
@@ -27,9 +38,10 @@ default_html_template = '''
 </style>
 </head>
 <body>
-<code>
+<div class="table">
 {data}
-</code>
+</div>
+<div style="clear:both"></div>
 </body>
 </html>
 '''
